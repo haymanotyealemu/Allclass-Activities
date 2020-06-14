@@ -1,0 +1,1 @@
+var artDiv = document.querySelector("#articles");
