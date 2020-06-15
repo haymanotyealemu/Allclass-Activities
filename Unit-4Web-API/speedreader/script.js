@@ -5,12 +5,12 @@ var timerEl = document.getElementById("countdown");
 var mainEl = document.getElementById("main");
 var bodyEl = document.createElement("div");
 var i = 0;
-
+var timeLeft = 5;
 
 function prepareRead() {
   // Create the countdown timer.
   
-    var timeLeft = 5;
+    
     var timeInterval = setInterval(function(){
     timeLeft--;
     timerEl.textContent = timeLeft + "seconds remaining";
