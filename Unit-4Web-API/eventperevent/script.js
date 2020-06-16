@@ -23,8 +23,14 @@ function addTip(event){
     tipAmtEl.textContent =  tipAmount;
     newtotalEl.textContent = newTotal.toFixed(2);
 };
-
+function splitTotal(event) {
+    event.preventDefault();
+    var total = newtotalEl.textContent;
+    var numPeople = splitEl.value;
+    var newTotal = (total / numPeople).toFixed(2);
+    splitTotEl.textContent = newTotal;
+}
 
 btnEl.addEventListener("click",addTip);
-
+btnEl.addEventListener("click",splitTotal);
 
