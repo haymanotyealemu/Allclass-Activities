@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Clicked</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+	<h1>Click to Eat Sandwich</h1>
+	<div id="sandwiches">
+		<h3 id="pbj">Peanut Butter Jelly</h3>
+		<h3 id="grilledcheese">Grilled Cheese</h3>
+		<h3 id="roastbeef">Roast Beef</h3>
+		<h3 id="chicken">Chicken</h3>
+	</div>
+
+  <div id="image-div"></div>
+
+  <script type="text/javascript">
+
+    // This document.ready isn't necessary in this example... but is needed in cases where the HTML is complex.
+    // This code makes sure that the JavaScript doesn't get run until the HTML is finished loading
+    // It's useful to become familiar with now.
+
+    $(document).ready(function() {
+
+      // VARIABLES
+      // ====================================================================
+      
+      // Here we create variables for tracking the number of sandwiches eaten
+      // ...
+		var pbj = $('#pbj');
+		var grilledCheese = $('#grilledcheese');
+		var roastBeef = $('#roastbeef');
+
+		var pbjEaten = 0;
+		var grilledCheeseEaten = 0;
+		var roastBeefEaten = 0;
+
+
+      // ...
+
+      // FUNCTIONS
+      // ====================================================================
+      // Here we create various on "click" functions which capture the clicks
+      // Inside each click event is the code to create an alert, update the counter, then show the updated count.
+	  // ...
+
+	  $('#sandwiches').on("click", function(event) {
+
+		if(event.target.matches("h3")) {
+			console.log(event.target.id);
+			var targetId = event.target.id;
+
+			var alertText = "";
+			var countText = "You have eaten ";
+			if (targetId === "pbj") {
+				alertText = "Tastes like chicken!";
+				pbjEaten++;
+				countText += pbjEaten + " pbj sandwiches";
+			} else if (targetId === "grilledcheese") {
+				alertText = "Vegan please!";
+				grilledCheeseEaten++;
+				countText += grilledCheeseEaten + " grilled cheese sandwiches";
+			} else if (targetId === "roastbeef") {
+				alertText = "It's fresh, I promise!";
+				roastBeefEaten++;
+				countText += roastBeefEaten + " roast beef sandwiches";
+			} else {
+				alertText = "I don't know that sandwich type";
+				countText = " unknown sandwich";
+			}
+
+			alert(alertText);
+			alert(countText);
+		}
+	  })
+		
+
+
+		// pbj.on("click", function(event) {
+		// 	alert("Tastes like chicken!");
+		// 	pbjEaten++;
+		// 	alert("You have eaten " + pbjEaten + " pbj sandwiches");
+		// });
+
+		// grilledCheese.on("click", function(event) {
+		// 	alert("Vegan please!");
+		// 	grilledCheeseEaten++;
+		// 	alert("You have eaten " + grilledCheeseEaten + " grilled cheese sandwiches");
+		// });
+
+		// roastBeef.on("click", function(event) {
+		// 	alert("Vegan please!");
+		// 	roastBeefEaten++;
+		// 	alert("You have eaten " + roastBeefEaten + " roast beef sandwiches");
+		// });
+
+      // ...
+
+    });
+
+</script>
+
+</body>
+
+</html>
