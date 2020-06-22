@@ -2,24 +2,24 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>Fridge Magnets</title>
+    <meta charset="UTF-8">
+    <title>Fridge Magnets</title>
 </head>
 
 <!-- CSS Styles (These styles are provided to you. Don't touch these!) -->
 <style>
-  body {
+    body {
     background: url(assets/fridge.png) no-repeat;
-  }
+    }
 
-  .letter {
+    .letter {
     width: 30px;
     height: 30px;
     border-style: solid;
     padding: 2px;
     float: left;
     margin: 2px;
-  }
+    }
 
   .letter-button-color {
     color: darkcyan;
@@ -73,31 +73,26 @@
         // 3. Then give each "letterBtn" the following classes: "letter-button" "letter" "letter-button-color".
         letterbtn.addClass("letter-button letter letter-button-color ");
       // 4. Then give each "letterBtn" an attribute called "data-letter", with a value eqaual to "letters[i]"
-        letterbtn.data("data-letter","letters[i]");
+        letterbtn.attr("data-letter","letters[i]");
       // 5. Then give each "letterBtn" a text equal to "letters[i]".  
         letterbtn.text(letters[i]);
       // 6. Finally, append each "letterBtn" to the "#buttons" div (provided).
-            $("#buttons").append(letterbtn);
+        $("#buttons").append(letterbtn);
 
     }
 
-      
 
-     
 
-     
-
-     
-
-  // 6. Finally, append each "letterBtn" to the "#buttons" div (provided).
-
-      // Be sure to test that your code works for this major task, before proceeding to the next one!
 
       // MAJOR TASK #2: ATTACH ON-CLICK EVENTS TO "LETTER" BUTTONS
       // =================================================================================
 
       // 7. Create an "on-click" event attached to the ".letter-button" class.
+        $(".letter-button").on("click",function(){
+            var fridgeMagnet =  $("<div>");
+            fridgeMagnet.addClass("letter fridge-color");
 
+        })
       // Inside the on-click event...
 
       // 8. Create a variable called "fridgeMagnet" and set the variable equal to a new div.
