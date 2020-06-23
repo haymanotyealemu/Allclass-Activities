@@ -9,7 +9,7 @@
 <!-- CSS Styles (These styles are provided to you. Don't touch these!) -->
 <style>
     body {
-    background: url(assets/fridge.png) no-repeat;
+    background: url(./assets/fridge.png) no-repeat;
     }
 
     .letter {
@@ -64,17 +64,22 @@
 
 
       // MAJOR TASK #1: DYNAMICALLY CREATE BUTTONS
-      // =================================================================================
+      
 
       // 1. Create a for-loop to iterate through the letters array.
       for (var i=0; i<letters.length;i++ ){
         //Create a variable named "letterBtn" equal to $("<button>");
+          // <button></button>
         var letterbtn = $("<button>");
         // 3. Then give each "letterBtn" the following classes: "letter-button" "letter" "letter-button-color".
+        // <button class="letter-button letter letter-button-color"></button>
         letterbtn.addClass("letter-button letter letter-button-color ");
       // 4. Then give each "letterBtn" an attribute called "data-letter", with a value eqaual to "letters[i]"
+
+      // <button class="letter-button letter letter-button-color" data-letter="A"></button>
         letterbtn.attr("data-letter","letters[i]");
       // 5. Then give each "letterBtn" a text equal to "letters[i]".  
+      //// <button class="letter-button letter letter-button-color" data-letter="A">A</button>
         letterbtn.text(letters[i]);
       // 6. Finally, append each "letterBtn" to the "#buttons" div (provided).
         $("#buttons").append(letterbtn);
