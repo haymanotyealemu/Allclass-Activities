@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Trigger Random</title>
+  <title>Lottery Generator</title>
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Added link to the jQuery Library -->
@@ -31,14 +31,22 @@
   <h1 class="text-center" id="random-number"></h1>
 
   <script type="text/javascript">
+    var number = ["0","1","2","3","4","5","6","7","8","9"];
+    
 
     $(document).ready(function() {
 
       // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
       // ...
       $("#random-button").on("click",function(){
-        var ranNumber = Math.floor(Math.random()*1000) +1;
-        $("#random-number").text(ranNumber);
+        var lotteryNum = "";
+        for (var i=0; i<number.length;i++){
+          var random = Math.floor(Math.random
+        ()*10) ;
+        lotteryNum = random + lotteryNum
+          
+        } 
+        $("#random-number").prepend("<br><hr>"+ lotteryNum);
       })
 
 
