@@ -96,7 +96,13 @@
         $(".letter-button").on("click",function(){
             var fridgeMagnet =  $("<div>");
             fridgeMagnet.addClass("letter fridge-color");
+            fridgeMagnet.addClass("letter fridge-color");
+            fridgeMagnet.text($(this).attr("data-letter"));
+            $("#display").append(fridgeMagnet);
 
+        });
+        $("#clear").on("click",function(event){
+          $("#display").empty();
         })
       // Inside the on-click event...
 
