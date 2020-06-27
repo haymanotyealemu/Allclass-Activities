@@ -31,12 +31,15 @@
       // Create CODE HERE to log the resulting object
       consol.log(response);
       // Create CODE HERE to calculate the temperature (converted from Kelvin)
-      
+      var temFarnite = (response.main.temp - 273.15) *1.80 + 32; 
       // Create CODE HERE to transfer content to HTML
-      
+      $(".city").html("<h1>" + response.name + "</h1>");
+      $(".wind").text("Wind Speed: " + response.wind.speed);
+      $(".humidity").text("Humidity: " + response.main.humidity);
       // Hint: To convert from Kelvin to Fahrenheit: F = (K - 273.15) * 1.80 + 32
       // Create CODE HERE to dump the temperature content into HTML
-
+      $(".temp").text("Temerature in (K):" + response.main.temp);
+      $(".temp").text("Temerature in (F):" + temFarnite. toFixed(2));
     });
   </script>
 </body>
