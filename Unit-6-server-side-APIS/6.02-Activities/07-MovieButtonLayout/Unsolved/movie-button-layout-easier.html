@@ -40,10 +40,17 @@
       function renderButtons() {
 
         // Delete the content inside the buttons-view div prior to adding new movies
+          $("#buttons-view").empty();
         // (this is necessary otherwise you will have repeat buttons)
 
         // Loop through the array of movies, then generate buttons for each movie in the array
-
+          for (var i = 0; i < movies.length; i++){
+            var b= $("<button>");
+            b.addClass("movie");
+            b.attr("data-name",movies[i]);
+            b.text(movies[i]);
+            $("#buttons-view").append(b);
+          }
       }
 
       // This function handles events where the add movie button is clicked
