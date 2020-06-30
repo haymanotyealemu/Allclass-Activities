@@ -34,9 +34,18 @@
 
     $.ajax
     ({url:queryURL,
-        method:"GET"
+      method:"GET"
       }).then(function(response){
       console.log(response);
+      var artistName=$("<h1>").text(response.name);
+        var artistURL= $("<a>").attr("href",response.url).append(artistName);
+        var image= $("<img>").attr("src",response.thumb_url);
+        var numFan= $("<h2>").text(response.tracker_count + "fans tracking this artist");
+        
+
+
+
+      
       });
 
     // Using jQuery, append the following to the #artist-div :
