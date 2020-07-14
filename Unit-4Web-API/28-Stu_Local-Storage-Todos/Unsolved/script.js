@@ -3,9 +3,9 @@ var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
 
-var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
+var todos = [];
 
-renderTodos();
+init();
 
 function renderTodos() {
   // Clear todoList element and update todoCountSpan
@@ -22,9 +22,22 @@ function renderTodos() {
 
     var button = document.createElement("button");
     button.textContent = "Complete";
+
     li.appendChild(button);
     todoList.appendChild(li);
   }
+}
+
+function init() {
+  // Write code here to check if there are todos in localStorage
+  // If so, parse the value from localStorage and assign it to the todos variable
+
+  // Render todos to the DOM
+  renderTodos();
+}
+
+function storeTodos() {
+  // Add code here to stringify the todos array and save it to the "todos" key in localStorage
 }
 
 // When form is submitted...
@@ -42,21 +55,7 @@ todoForm.addEventListener("submit", function(event) {
   todos.push(todoText);
   todoInput.value = "";
 
-  // Re-render the list
+  // Store updated todos in localStorage, re-render the list
+  storeTodos();
   renderTodos();
-});
-
-// When a element inside of the todoList is clicked...
-todoList.addEventListener("click", function(event) {
-  var element = event.target;
-
-  // If that element is a button...
-  if (element.matches("button") === true) {
-    // Get its data-index value and remove the todo element from the list
-    var index = element.parentElement.getAttribute("data-index");
-    todos.splice(index,1);
-
-    // Re-render the list
-    renderTodos();
-  }
 });
