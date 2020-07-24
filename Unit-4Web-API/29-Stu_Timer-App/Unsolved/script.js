@@ -7,13 +7,14 @@ var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
 var restMinutesInput = document.querySelector("#rest-minutes");
+var inputs = document.querySelector(".inputs");
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
 var interval;
 var status="working"; // Default status
 
-
+getTimepreferences()
 function setTime(){
   var minutes;
   if (status === "working"){
@@ -38,6 +39,9 @@ function startTimer() {
       renderTime();
     },1000);
   }
+  else {
+    alert("Minutes of work/rest must be greater than 0.");
+  }
   
 }
 function renderTime(){
@@ -45,8 +49,12 @@ function renderTime(){
   secondsDisplay.textContent = getFormatedSeconds();
   if(secondsElapsed >= totalSeconds){
     alert("time a break");
-   clearInterval(interval);
+   
   }
+  else{
+    alert("Time to get back to work!");
+  }
+  stopTimer();
 
 }
 function pause(){
@@ -55,8 +63,7 @@ function pause(){
 }
 function stopTimer(){
   secondsElapsed = 0;
-  setTime()
-  clearInterval(interval);
+  setTime();
   renderTime();
 }
 function getFormatedMinutes(){
@@ -88,7 +95,32 @@ function toggleStatus(){
     status="Resting";
   }
   statusSpan.textContent=status;
-
+  secondsElapsed = 0;
+  setTime();
+  renderTime();
+}
+// Here we check to see if any preferences have been set in the local storage via setTimePreferences()
+function getTimepreferences(){
+  var preferences = JSON.parse(localStorage.getItem("preferences"));
+  if(preferences){
+    if (preferences.workMinutes){
+      workMinutesInput.value = preferences.workMinutes;
+    }
+    
+    if(preferences.restMinutes){
+      restMinutesInput.value = preferences.restMinutes;
+    }
+    
+  }
+  setTime();
+  renderTime();
+}
+function setTimePreferences(){
+  localStorage.setItem("preferences",JSON.stringify({
+    workMinutes: workMinutesInput.value.trim(),
+    restMinutes: restMinutesInput.value.trim()
+  })
+  );
 }
 
 
@@ -97,3 +129,6 @@ playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click",pause);
 stopButton.addEventListener("click",stopTimer);
 statusToggle.addEventListener("change",toggleStatus);
+inputs.addEventListener("change", setTimePreferences);
+inputs.addEventListener("keyup", setTimePreferences);
+
