@@ -27,7 +27,15 @@ var darthmaul = {
 
 // YOUR CODE GOES HERE
 
-//
+
+  var ObiWanKenobi = {
+    name: "ObiWanKenobi",
+    role: "Sith Lord",
+    age: 52,
+    forcePoints: 3000
+  };
+ 
+
 
 // Routes
 // ===========================================================
@@ -49,7 +57,10 @@ app.get("/darthmaul", function(req, res) {
 
 // YOUR CODE GOES HERE
 //
-//
+
+app.get("/ObiWanKenobi", function(req, res) {
+  res.json(ObiWanKenobi);
+});
 
 // Listener
 // ===========================================================

@@ -51,7 +51,6 @@ app.get("/api/characters/:character", function(req, res) {
       return res.json(characters[i]);
     }
   }
-
   // What does this code do?
   return res.send("No character found");
 });

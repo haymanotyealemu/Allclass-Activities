@@ -37,9 +37,9 @@ app.get("/", function(req, res) {
 app.get("/api/characters", function(req, res) {
   return res.json(characters);
 });
-
+// api/characters/darthmaul
 // Displays a single character, or shows "No character found"
-app.get("/api/characters/:character", function(req, res) {
+app.get("/api/characters/:character/name", function(req, res) {
   // Grab the selected parameter
   var chosen = req.params.character;
   console.log(chosen);
@@ -47,7 +47,7 @@ app.get("/api/characters/:character", function(req, res) {
   // Filter to show only the selected character
   for (var i = 0; i < characters.length; i++) {
     if (chosen === characters[i].routeName) {
-      return res.json(characters[i]);
+      return res.json(characters[i].name);
     }
   }
 
