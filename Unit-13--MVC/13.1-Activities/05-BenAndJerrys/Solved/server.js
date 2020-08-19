@@ -33,7 +33,7 @@ app.get("/icecreams/:name", function(req, res) {
 });
 
 app.get("/icecreams", function(req, res) {
-  res.render("ics", { ics: icecreams });
+  res.render('ics', {ics:iecreams});
 });
 
 // Start our server so that it can begin listening to client requests.
