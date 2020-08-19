@@ -12,9 +12,9 @@ var PORT = process.env.PORT || 8080;
 // MySQL DB Connection Information (remember to change this with our specific credentials)
 var connection = mysql.createConnection({
   host: "localhost",
-  port: 3306,
+  port: 8080,
   user: "root",
-  password: "",
+  password: "haymilove@2012",
   database: "seinfeld"
 });
 
