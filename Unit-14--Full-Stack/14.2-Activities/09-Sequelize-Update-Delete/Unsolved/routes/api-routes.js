@@ -41,6 +41,7 @@ module.exports = function(app) {
     // Use the sequelize destroy method to delete a record from our table with the
     // id in req.params.id. res.json the result back to the user
     db.Todo.destroy({
+      // We just have to specify which todo we want to destroy with "where"
       where:{
           id: req.params.id
       }
@@ -54,7 +55,9 @@ module.exports = function(app) {
   app.put("/api/todos", function(req, res) {
     // Use the sequelize update method to update a todo to be equal to the value of req.body
     // req.body will contain the id of the todo we need to update
-    db.Todo.updated({
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Todo.update({
       text: req.body.text,
       complete:req.body.complete
     },{
