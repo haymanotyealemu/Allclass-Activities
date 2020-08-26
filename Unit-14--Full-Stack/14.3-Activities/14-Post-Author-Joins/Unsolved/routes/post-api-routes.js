@@ -18,9 +18,13 @@ module.exports = function(app) {
     if (req.query.author_id) {
       query.AuthorId = req.query.author_id;
     }
+   // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Author
     // 1. Add a join here to include all of the Authors to these posts
     db.Post.findAll({
-      where: query
+      where: query,
+      include: [db.Author]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -28,11 +32,15 @@ module.exports = function(app) {
 
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
+    // Here we add an "include" property to our options in our findOne query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Author
     // 2. Add a join here to include the Author who wrote the Post
     db.Post.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Author]
     }).then(function(dbPost) {
       console.log(dbPost);
       res.json(dbPost);
