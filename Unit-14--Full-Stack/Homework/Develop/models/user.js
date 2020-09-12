@@ -7,8 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      //an attempt to insert an username that already exists there will throw a SequelizeUniqueConstraintError
       unique: true,
       validate: {
+        //checks for email format (foo@bar.com)
         isEmail: true
       }
     },
