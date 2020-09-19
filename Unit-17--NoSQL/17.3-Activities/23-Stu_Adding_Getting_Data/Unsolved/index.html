@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adding and Getting Data</title>
+  </head>
+
+  <body>
+    <h1>Open Your Developer Tools > Application > IndexedDB</h1>
+    <script>
+      const request = window.indexedDB.open("toDoList", 1);
+      
+      request.onupgradeneeded = event => {
+        const db = event.target.result;
+       // CODE HERE
+        const toDoListStore = db.createObjectStore("toDoList", {keyPath: "listID"});
+        toDoListStore.createIndex("dueDateIndex", "dueDate");
+      }
+
+      
+      request.onsuccess = () => {
+        const db = request.result;
+        // CODE HERE
+        const transaction = db.transaction(["toDoList"], "readwrite");
+        const toDoListStore = transaction.objectStore("toDoList");
+        const duedateIndex = toDoListStore.index("dueDateIndex");
+        // Add data
+        toDoListStore.add({ listID: "1", dueDate: "today"});
+        toDoListStore.add({ listID: "2", dueDate: "tomorrow"});
+        toDoListStore.add({ listID: "3", dueDate: "nextweek"});
+        toDoListStore.add({ listID: "4", dueDate: "nextmonth"});
+
+        // Return an item by keyPath
+        const getRequest = toDoListStore.get("1");
+        getRequest.onsuccess = () => {
+          console.log(getRequest.result);
+        };
+        // Return an item by index
+        const getRequestIdx = duedateIndex.getAll("today");
+        getRequestIdx.onsuccess = () => {
+          console.log(getRequestIdx.result); 
+        }; 
+      };
+
+    </script>
+  </body>
+</html>
