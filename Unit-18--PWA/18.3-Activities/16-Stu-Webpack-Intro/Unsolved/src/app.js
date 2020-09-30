@@ -1,3 +1,4 @@
+const calculations = require("./calculations");
 const priceEl = document.getElementById("price");
 const balanceEl = document.getElementById("balance");
 const expenseEl = document.getElementById("expense");
