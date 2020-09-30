@@ -1,5 +1,3 @@
-// @TODO Add remove from favorites functionality
-
 import { checkForIndexedDb, useIndexedDb } from "./indexedDb";
 import { renderArticles } from "./domMethods";
 

@@ -1,7 +1,7 @@
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
+
 const config = {
-  // Add webpack configuration code here
   entry: {
     app: './assets/js/index.js',
     favorites: './assets/js/favorites.js',
