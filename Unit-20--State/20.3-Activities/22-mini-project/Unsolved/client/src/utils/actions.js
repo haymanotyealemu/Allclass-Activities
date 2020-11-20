@@ -1,0 +1,10 @@
+export const ADD_POSTS = "ADD_POSTS";
+export const UPDATE_POSTS = "UPDATE_POSTS";
+export const REMOVE_POSTS = "REMOVE_POSTS";
+export const LOADING = "LOADING";
+export const SET_CURRENT_POST = "SET_CURRENT_POST";
+
+
+export const ADD_FAVORITE = "ADD_FAVORITE";
+export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
+export const UPDATE_FAVORITES = "UPDATE_FAVORITES";
