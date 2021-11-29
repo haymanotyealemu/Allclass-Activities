@@ -6,3 +6,17 @@ var reverseWords = function(str) {
 
   return reversedWords.join(" ");
 };
+
+
+function FirstReverse(str) { 
+
+  // code goes here  
+  var tomatoes = [];
+for (i = str.length - 1; i > -1; i--){
+  tomatoes.push(str[i]);
+}
+str = tomatoes.join('');
+ 
+  return str; 
+         
+}
